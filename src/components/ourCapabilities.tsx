@@ -2,12 +2,12 @@ import {
   Box,
   Collapse,
   Container,
-  Divider,
   Flex,
   Group,
   SimpleGrid,
   Text,
   Title,
+  useMantineTheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { TiTimes } from 'react-icons/ti';
@@ -36,57 +36,60 @@ const data = [
 ];
 
 export default function OurCapabilities() {
-  // const [opened, { toggle }] = useDisclosure(false);
+  const theme = useMantineTheme();
   const features = data.map((feature) => {
     const [opened, { toggle }] = useDisclosure();
-    // <Box>
     return (
       <Box
         key={feature.title}
-        h={400}
-        // w='100vw'
-        // p='xl'
+        h={450}
         pos='relative'
         sx={{
           backgroundImage: `url(${feature.image})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'right',
+
+          [theme.fn.smallerThan('md')]: {
+            height: '300px',
+            backgroundPosition: 'top',
+          },
+
+          [theme.fn.smallerThan('sm')]: {
+            height: opened ? '400px' : '200px',
+          },
         }}
       >
         <Flex
           justify='space-between'
           direction='column'
-          px={30}
+          w='100%'
           sx={{
-            background: 'black',
-            filter: `drop-shadow(-18px -18px 10px )`,
+            backgroundImage: `linear-gradient(to top, #000, transparent )`,
             paddingBlockEnd: '10px',
           }}
-          align='center'
-          // px='md'
-          w='100%'
           pos='absolute'
           bottom={0}
         >
-          <Group
-            grow
-            p={0}
-            m={0}
-            sx={{ justifyContent: 'space-between', width: '100%' }}
-          >
-            <Text fz={25} fw={500} color='white'>
+          <Flex px={20} m={0} sx={{ justifyContent: 'space-between' }}>
+            <Text fz={24} fw={400} lh={1.3} color='white'>
               {feature.title}
             </Text>
-            <Box display={'flex'} sx={{ justifyContent: 'flex-end' }}>
+            <Box
+              display={'flex'}
+              sx={{
+                justifyContent: 'flex-end',
+              }}
+            >
               {opened ? (
                 <TiTimes color='white' size={25} onClick={toggle} />
-                ) : (
+              ) : (
                 <IconPlus color='white' onClick={toggle} />
               )}
             </Box>
-          </Group>
+          </Flex>
           <Collapse in={opened}>
-            <Text fz='md' color='white' mt='sm'>
+            <Text fz='sm' fw={100} px={20} color='white' lh={1.4} mt='sm'>
               {feature.body}
             </Text>
           </Collapse>
@@ -96,7 +99,7 @@ export default function OurCapabilities() {
   });
 
   return (
-    <Box mt={50} mb={50}>
+    <Box mt={50} mb={50} mx={0}>
       <Container>
         <Title order={2} fz={30}>
           Our Capabilities
@@ -107,7 +110,7 @@ export default function OurCapabilities() {
           cols={3}
           spacing={0}
           mt={50}
-          breakpoints={[{ maxWidth: 'md', cols: 1 }]}
+          breakpoints={[{ maxWidth: 'md', cols: 1, }]}
         >
           {features}
         </SimpleGrid>
