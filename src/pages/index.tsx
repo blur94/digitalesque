@@ -11,22 +11,23 @@ const inter = Inter({ subsets: ['latin'] });
 
 function Home() {
   return (
-    <Container p='md' fluid>
-      <Group mt={70} sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Box w={1000}>
-          <Welcome />
-          <Divider my={20} size='md' color='black' />
-          <BannerCarousel />
+    <main>
+      <Container p='md' fluid>
+        <Group mt={70} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box w={1000}>
+            <Welcome />
+            <Divider my={20} size='md' color='black' />
+            <BannerCarousel />
 
-          <TextUnderBanner />
-
-        </Box>
-        <Box>
-          <OurCapabilities />
-        </Box>
-      </Group>
-    </Container>
+            <TextUnderBanner />
+          </Box>
+        </Group>
+      </Container>
+      <Box component='div' w='100vw'>
+        <OurCapabilities />
+      </Box>
+    </main>
   );
 }
 
-export default withLayout(Home)
+export default withLayout(Home);
