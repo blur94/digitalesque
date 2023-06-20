@@ -7,15 +7,16 @@ import Welcome from '@/views/home/welcome';
 import TextUnderBanner from '@/components/textUnderBanner';
 import OurCapabilities from '@/components/ourCapabilities';
 import Clientele from '@/components/clientele';
+import Insights from '@/components/insights';
 
 const inter = Inter({ subsets: ['latin'] });
 
 function Home() {
   return (
-    <main>
-      <Container p='md' fluid>
+    <Box>
+      <Box p='md'>
         <Group mt={70} sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Box w={1200}>
+          <Box w={'80vw'}>
             <Welcome />
             <Divider my={20} size='md' color='black' />
             <BannerCarousel />
@@ -23,17 +24,20 @@ function Home() {
             <TextUnderBanner />
           </Box>
         </Group>
-      </Container>
-      <Box component='div' w='100vw'>
+      </Box>
+      <Box>
         <OurCapabilities />
       </Box>
 
       <Group mt={70} sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Box w={1200}>
+        <Box w='80vw'>
           <Clientele />
         </Box>
+        <Box>
+          <Insights />
+        </Box>
       </Group>
-    </main>
+    </Box>
   );
 }
 

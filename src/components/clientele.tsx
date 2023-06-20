@@ -1,13 +1,31 @@
-import { Box, Divider, Group, SimpleGrid, Text, Title } from '@mantine/core';
+import {
+  Box,
+  Divider,
+  Group,
+  SimpleGrid,
+  createStyles,
+  Text,
+  Title,
+} from '@mantine/core';
+
+const useStyles = createStyles({});
 
 export default function Clientele() {
+  const { theme } = useStyles();
+
   return (
     <Box>
-      <Text fz={40} lh={1.2} fw={700} pr={200}>
+      <Text fz={36} lh={1.2} fw={700} mb={40} sx={{
+        [theme.fn.smallerThan('sm')]: {
+          fontSize: '24px',
+          fontWeight: 500,
+          paddingBottom: 20,
+        },
+      }}>
         We have worked closely and successfully with government departments and
         major companies, and pride ourselves on meeting and exceeding our
         client’s high expectations. Here, you can find a selection of the many
-        client organisations we already work closely alongside:
+        client organizations we already work closely alongside:
       </Text>
 
       <Divider size={'md'} color='black' />
@@ -20,28 +38,32 @@ export default function Clientele() {
         >
           <Box></Box>
           <Box>
-            <Title order={3}>The Central bank of Nigeria</Title>
-            <Text>
-              Set-up of the eNaira New Media Infrastructure. Built eNaira.gov.ng
-              and the Web App.{' '}
-            </Text>
-            <Divider size={'sm'} color='black' />
-
-            <Group>
+            <Box>
               <Title order={3}>The Central bank of Nigeria</Title>
-              <Text>
+              <Text mb='md'>
                 Set-up of the eNaira New Media Infrastructure. Built
                 eNaira.gov.ng and the Web App.{' '}
               </Text>
               <Divider size={'sm'} color='black' />
-            </Group>
+            </Box>
 
-            <Title order={3}>The Central bank of Nigeria</Title>
-            <Text>
-              Set-up of the eNaira New Media Infrastructure. Built eNaira.gov.ng
-              and the Web App.{' '}
-            </Text>
-            {/* <Divider size={'md'} color='black' /> */}
+            <Box my='xl'>
+              <Title order={3}>The Central bank of Nigeria</Title>
+              <Text mb='md'>
+                Set-up of the eNaira New Media Infrastructure. Built
+                eNaira.gov.ng and the Web App.{' '}
+              </Text>
+              <Divider size={'sm'} color='black' />
+            </Box>
+
+            <Box>
+              <Title order={3}>The Central bank of Nigeria</Title>
+              <Text>
+                Set-up of the eNaira New Media Infrastructure. Built
+                eNaira.gov.ng and the Web App.
+              </Text>
+              {/* <Divider size={'md'} color='black' /> */}
+            </Box>
           </Box>
         </SimpleGrid>
       </Box>

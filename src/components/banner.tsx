@@ -58,36 +58,34 @@ interface CardProps {
 }
 
 function Card({ image, title, category }: CardProps) {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
 
   return (
     <Paper
       shadow='md'
       p='xl'
       radius='xs'
-      sx={{ backgroundImage: `url(${image})` }}
+      sx={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', }}
       className={classes.card}
       pos='relative'
-      w='1000px'
+      w='80vw'
+      h='70dvh'
     >
-      <Box pos='absolute' bottom={80} w='80%'>
-        {/* <Text className={classes.category} size='xs'>
-          {category}
-        </Text> */}
+      <Box pos='absolute' bottom={80} w='70vw'>
         <Text
-          // className={classes.title}
-          // pos='absolute'
           fz={30}
           color='white'
           fw={500}
-          sx={{lineHeight: 1.2}}
+          sx={{lineHeight: 1.2,
+            [theme.fn.smallerThan('sm')]: {
+              fontSize: '20px'
+            }
+          }}
+    
         >
           {title}
         </Text>
       </Box>
-      {/* <Button variant='white' color='dark'>
-        Read article
-      </Button> */}
     </Paper>
   );
 }
@@ -126,12 +124,10 @@ export default function BannerCarousel() {
 
   return (
     <Carousel
-      //   slideSize='50%'
       withIndicators
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: rem(2) }]}
       slideGap='xl'
       align='start'
-      // slidesToScroll={mobile ? 1 : 2}
       display='flex'
       loop
       plugins={[autoplay.current]}
