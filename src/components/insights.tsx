@@ -97,22 +97,24 @@ export default function Insights() {
   });
 
   return (
-    <Box mt={50} mb={50} miw='97.6vw' mx={0}>
+    <Box mt={50} mb={50} miw="97.6vw" mx={0}>
       <Container>
-        <Title order={2} fz={30}>
-          Our Capabilities
+        <Title order={2} fz={30} mb='xl'>
+          Our Insights
         </Title>
       </Container>
       <Box>
         <Grid
-        //   mt={50}
-        //   grow
-        //   gutter={5}
-          sx={{
-            // display: 'grid',
-            // // gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-            // gap: '5px', // Adjust the gap value as needed
-          }}
+          //   mt={50}
+          //   grow
+          //   gutter={5}
+          sx={
+            {
+              // display: 'grid',
+              // // gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+              // gap: '5px', // Adjust the gap value as needed
+            }
+          }
         >
           {features}
         </Grid>
