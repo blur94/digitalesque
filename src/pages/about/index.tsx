@@ -35,9 +35,6 @@ function About() {
         <Box w="80vw">
           <Clientele title="Digitalesque has a dedicated team of highly skilled professionals who are passionate about delivering the company’s strategy. In a supportive environment, our employees are motivated through performance management systems, and recognition approaches that reward employee contribution." data={aboutClientele} />
         </Box>
-        <Box>
-          {/* <Insights /> */}
-        </Box>
       </Group>
     </Box>
   );
